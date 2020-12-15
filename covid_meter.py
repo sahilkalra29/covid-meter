@@ -18,7 +18,9 @@ df_groupby_block = dw_data.groupby(['Block'],as_index=False).count()
 
 df1 = df_groupby_block[['Block', 'Total Cases']]
 
-df2 = dw_data[['Staff No.', 'Staff Name', 'Block']]
+df2_raw = dw_data.sort_values(['Staff No.'])
+df2= df2_raw[['Staff No.', 'Staff Name', 'Block']]
+
 
 df3 = dw_data.groupby(['Date'],as_index=False).count()
 
@@ -34,7 +36,7 @@ app.layout = html.Div(children=[
 
     html.H1(children=['C-DoT Delhi Covid Meter'], className = 'header_title'),
 
-    html.Div(children=['''Last Updated on 15th Dec 2020, 13:50 IST'''], className = 'header_time'),
+    html.Div(children=['''Last Updated on 15th Dec 2020, 10:00 AM IST'''], className = 'header_time'),
 
     html.Div(children=[
         
@@ -49,7 +51,7 @@ app.layout = html.Div(children=[
         html.Div(children=[
             html.Div(children=['''TOTAL CASES'''], className = 'row1col3_title'),
             
-            html.Div(children=[''' 80 '''], className = 'row1col3_data')
+            html.Div(children=[''' 53 '''], className = 'row1col3_data')
         ], className = 'row1col3'),
         
         html.Div(children=[], className = 'row1col4'),
